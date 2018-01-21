@@ -1,6 +1,6 @@
 {
-  "name": "musafir",
-  "app_id": "",
+  "name": "mashki-tosha",
+  "app_id": "6a981747",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

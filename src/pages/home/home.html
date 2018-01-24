@@ -1,17 +1,36 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Mashki Tosha</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="filterItems($event)"></ion-searchbar>
+  <ion-card *ngIf="jamaats.length == 0">
+    <ion-card-content>
+      <p>Salam, All over mumineens, aap sagla Maula tus ni Barakat hasil kari rahya cho ne ye Barakat Musafreen ne safar per
+        bhi mile te waste Dtd/- 12-1-17, ek system karine ek "Mashki Tosha-Group" tyar thayu che. Alag alag Stations per
+        si Humna tak 13000 musafireen ne "Tosho" ni khidmat mili chuki che ne haji aap sagla ne fayedo thai te waste hamare
+        contact kare
+      </p>
+      <p>
+        All over India ma Note :-musafireen train ya by road safar shuru kare te pehela iltemas che ke 6 Hour ya 1 Diwas pehela hamare
+        phone kare
+      </p>
+    </ion-card-content>
+  </ion-card>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card *ngFor="let jamaat of jamaats">
+    <ion-card-header color="primary">
+      {{jamaat.jamaat}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let contact of jamaat.contacts">
+          <ion-col>{{contact.name}}</ion-col>
+          <ion-col>{{contact.phone}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>

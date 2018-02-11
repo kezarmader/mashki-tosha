@@ -13,18 +13,38 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContactProvider } from '../providers/contactProviders/contactProvider';
 import { HttpModule } from '@angular/http';
 
+import { LoginPage } from '../pages/login/login';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FilterJamaatPipe } from '../pipes/filter-jamaat/filter-jamaat';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBJDcp5_hx9zw2vhVuJ6-6hCSkkKinnCBg",
+  authDomain: "torrid-fire-5043.firebaseapp.com",
+  databaseURL: "https://torrid-fire-5043.firebaseio.com",
+  projectId: "torrid-fire-5043",
+  storageBucket: "torrid-fire-5043.appspot.com",
+  messagingSenderId: "248722173478"
+};
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    FilterJamaatPipe
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +52,8 @@ import { HttpModule } from '@angular/http';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
